@@ -36,8 +36,8 @@ int ai_num(int table[]){
 		if (badflag == 0) 
 			return num;
 	}	
-	for (num = 0; num < 16; num++) {  //Reaching this means that the player can win with any number I give him.
-		usedflag = 0;
+	for (num = 0; num < 16; num++) {  //Reaching this means that the player can win with whatever number it gives him.
+		usedflag = 0;		  //So it just finds an unused number.
 		for (loc = 0; loc < 16; loc++){
 			if (table[loc] == num)
 				usedflag = 1;
