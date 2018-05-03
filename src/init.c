@@ -1,8 +1,14 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <ncurses.h>
+#include <curses.h>
 
 #include "quarto.h"
+
+#ifdef WIN32	//Defines WIN to be equal to 1 if user is on windows
+#define WIN 1
+#else		//Otherwise it defines it to be equal to 0.
+#define WIN 0
+#endif
 
 void print_logo(int maxrow, int maxcol){
 	attron(COLOR_PAIR(1));
@@ -18,7 +24,8 @@ void print_logo(int maxrow, int maxcol){
 void init(int table[],int* mode, int* players){
 	int maxrow, maxcol;
 	int i, j;		//Counters for "for" loops
-
+	
+	if (!WIN) {	// ctrl + doesn't work on windows terminals
 	nodelay(stdscr, FALSE);
 	do {						//Repeatedly gets the values of maxrow and maxcol in case the user changes them with ctrl +.
 		getmaxyx(stdscr, maxrow, maxcol); 	
@@ -28,6 +35,7 @@ void init(int table[],int* mode, int* players){
 		mvprintw((maxrow / 2) + 3, (maxcol - 20) / 2, "Press enter to play.");
 	} while (getch() != '\n');
 	nodelay(stdscr, TRUE);
+	}
 
 	getmaxyx(stdscr, maxrow, maxcol);
 	clear();
