@@ -18,7 +18,7 @@ int main(int argc, char** argv){
 	int table[16];
 	int inputtable[16];
 
-	/* ncurses initializations. */
+	/* curses initializations. */
 	initscr();
 	noecho();
 	keypad(stdscr, TRUE);
