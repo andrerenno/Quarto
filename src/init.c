@@ -30,7 +30,7 @@ void init(int table[],int* mode, int* players){
 	do {						//Repeatedly gets the values of maxrow and maxcol in case the user changes them with ctrl +.
 		getmaxyx(stdscr, maxrow, maxcol); 	
 		clear();
-		mvprintw((maxrow / 2) - 3, (maxcol - 15) / 2, "gQuarto ver: 1.0");
+		mvprintw((maxrow / 2) - 3, (maxcol - 15) / 2, "Quarto ver: 1.0");
 		mvprintw((maxrow / 2) - 0, (maxcol - 91) / 2, "We recommend you press (ctrl +) until this sentence covers the entire width of the terminal");
 		mvprintw((maxrow / 2) + 3, (maxcol - 20) / 2, "Press enter to play.");
 	} while (getch() != '\n');
